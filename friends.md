@@ -15,9 +15,20 @@ SELECT users.first_name, users.last_name, users2.first_name AS friend_fname, use
 FROM users
 LEFT JOIN friendships ON friendships.friend_id = users.id
 LEFT JOIN users AS users2 ON friendships.user_id = users2.id
-WHERE users.first_name LIKE '%Kermit%'
+WHERE users.first_name LIKE '%Kermit%';
 ```
 3. Consulta que retorna la persona con más amigos. 
 ```
 
 ```
+4. Consulta para insertar un nuevo usuario a la base de datos y hacerlo amigo de: Eli Byers, Kermit The Frog y Marky Mark.
+```
+INSERT INTO users (first_name, last_name, created_at, updated_at)
+VALUES ('Mento','Lathum',NOW(),NOW())
+INSERT INTO friendships (user_id, friend_id,created_at, updated_at)
+VALUES
+	('6','2',NOW(),NOW()),
+    ('6','4',NOW(),NOW()),
+    ('6','5',NOW(),NOW());
+```
+5. 
